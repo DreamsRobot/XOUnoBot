@@ -2,7 +2,6 @@ import random
 
 # XO Helpers
 def check_winner(board):
-    """Check if someone won in XO game"""
     win_pos = [
         [0,1,2],[3,4,5],[6,7,8],
         [0,3,6],[1,4,7],[2,5,8],
@@ -16,7 +15,6 @@ def check_winner(board):
     return None
 
 def board_to_text(board):
-    """Visual representation of the XO board"""
     return "\n".join([
         f"{board[0] or '1'} | {board[1] or '2'} | {board[2] or '3'}",
         f"{board[3] or '4'} | {board[4] or '5'} | {board[5] or '6'}",
@@ -25,7 +23,6 @@ def board_to_text(board):
 
 # Uno Helpers
 def get_uno_deck():
-    """Generate a shuffled Uno deck"""
     colors = ["red", "yellow", "green", "blue"]
     numbers = [str(i) for i in range(0,10)]
     deck = []
@@ -40,13 +37,11 @@ def get_uno_deck():
     return deck
 
 def is_playable(card, top_card):
-    """Check if a card can be played on top_card"""
     if card.startswith("wild"):
         return True
     return card.split("_")[0] == top_card.split("_")[0] or card.split("_")[1] == top_card.split("_")[1]
 
 def draw_cards(deck, n=1):
-    """Draw n cards from deck"""
     drawn = []
     for _ in range(n):
         if not deck:
